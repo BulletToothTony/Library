@@ -5,3 +5,7 @@ html {
 h1 {
     text-align: center;
 }
+
+.LibDiv {
+    border: 1px solid black;
+}
