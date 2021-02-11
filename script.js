@@ -1,4 +1,29 @@
 const LibDivInner = document.getElementById('LibInner')
+const newbookbtn = document.getElementById('newbookbtn')
+const modal = document.getElementById('myModal');
+const modalbtn = document.getElementById('myBtn');
+const spanmodal = document.getElementsByClassName("close")[0];
+
+modalbtn.onclick = function() {
+    modal.style.display = 'block';
+}
+
+spanmodal.onclick = function() {
+    modal.style.display = 'none';
+}
+
+window.onclick = function(e) {
+    if (e.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+
+newbookbtn.addEventListener("click", newbookfunc)
+
+function newbookfunc(e) {
+    console.log(e)
+    console.log('ee')
+}
 
 let myLibrary = [];
 
@@ -26,19 +51,19 @@ function addBookToLibrary(book) {
 
 }
 
-function addBookTest() {
-    title = prompt('Enter a title')
-    author = prompt('Enter author')
-    pages = prompt('Enter page count')
-    readyesno = prompt('Have you read this book?')
+// function addBookTest() {
+//     title = prompt('Enter a title')
+//     author = prompt('Enter author')
+//     pages = prompt('Enter page count')
+//     readyesno = prompt('Have you read this book?')
 
-    const newBook = new Book(title, author, pages, readyesno)
-    console.log(newBook)
-    myLibrary.push(newBook)
+//     const newBook = new Book(title, author, pages, readyesno)
+//     console.log(newBook)
+//     myLibrary.push(newBook)
 
-}
+// }
 
-addBookTest()
+// addBookTest()
 
 function LibraryLoop() {
     for (let i = 0; i < myLibrary.length; i++){
