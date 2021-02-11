@@ -29,23 +29,48 @@ window.onclick = function(e) {
 
 function formSubmit() {
     console.log("Submitted")
-    btitle = btitle.value
-    bauthor = bauthor.value
-    bpages = bpages.value
-    bread = bread.value
+    ctitle = btitle.value
+    cauthor = bauthor.value
+    cpages = bpages.value
+    cread = bread.value
     console.log(btitle.value)
     console.log(bauthor.value)
     console.log(bpages.value)
     console.log(bread.value)
 
-    const newbook = new Book (btitle, bauthor, bpages, bread)
+    const newbook = new Book (ctitle, cauthor, cpages, cread)
 
-    addBookToLibrary(newbook)
+    myLibrary.push(newbook)
 
+    // addBookToLibrary(newbook)
+
+    console.log(btitle + bauthor + bpages + bread)
     LibraryLoop()
 
     // addBookToLibrary(btitle, bauthor, bpages, bread)
 }
+
+// function testing() {
+//     ctitle = 'eeee';
+//     cauthor = 'eeeee';
+//     cpages = 1234;
+//     cread = 'yes';
+//     // console.log(btitle.value)
+//     // console.log(bauthor.value)
+//     // console.log(bpages.value)
+//     // console.log(bread.value)
+
+//     const newbook = new Book (ctitle, cauthor, cpages, cread)
+
+//     myLibrary.push(newbook)
+
+//     // addBookToLibrary(newbook)
+
+//     console.log(btitle + bauthor + bpages + bread)
+//     LibraryLoop()
+// }
+
+
 
 newbookbtn.addEventListener("click", newbookfunc)
 
@@ -75,7 +100,7 @@ console.log(Lotr.info())
 function addBookToLibrary(book) {
     book11 = EastofEden
     book1 = Lotr
-    myLibrary.push(book)
+    // myLibrary.push(book)
     myLibrary.push(book11)
     myLibrary.push(book1)
 
@@ -104,3 +129,4 @@ function LibraryLoop() {
 addBookToLibrary()
 LibraryLoop()
 
+// testing()
