@@ -1,5 +1,4 @@
 const LibDivInner = document.getElementById('LibInner')
-const newbookbtn = document.getElementById('newbookbtn')
 const modal = document.getElementById('myModal');
 const modalbtn = document.getElementById('myBtn');
 const spanmodal = document.getElementsByClassName('close')[0];
@@ -44,8 +43,10 @@ function formSubmit() {
 
     // addBookToLibrary(newbook)
 
-    console.log(btitle + bauthor + bpages + bread)
+    console.log(ctitle + cauthor + cpages + cread)
+
     LibraryLoop()
+
 
     // addBookToLibrary(btitle, bauthor, bpages, bread)
 }
@@ -69,16 +70,6 @@ function formSubmit() {
 //     console.log(btitle + bauthor + bpages + bread)
 //     LibraryLoop()
 // }
-
-
-
-newbookbtn.addEventListener("click", newbookfunc)
-
-function newbookfunc(e) {
-    console.log(e)
-    console.log('ee')
-}
-
 let myLibrary = [];
 
 function Book(title, author, pages, read) {
@@ -127,6 +118,6 @@ function LibraryLoop() {
 }
 
 addBookToLibrary()
-LibraryLoop()
+// LibraryLoop()
 
 // testing()
