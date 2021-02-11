@@ -8,7 +8,7 @@ const bpages = document.getElementById('bpages')
 const bread = document.getElementById('bread')
 
 
-
+window.onload = LibraryLoop;
 
 book = undefined;
 
@@ -49,10 +49,26 @@ function formSubmit() {
 
 
     LibraryLoop()
-
+    rendernewbook(newbook)
 
     // addBookToLibrary(btitle, bauthor, bpages, bread)
 }
+
+
+function rendernewbook(book) {
+    //creat div, add style
+    console.log('render')
+    let newdiv = document.createElement("div");
+    let newbook = document.createTextNode(book.info());
+    newdiv.appendChild(newbook)
+
+    const currentdiv = document.getElementById("renderdiv")
+    document.body.insertBefore(newdiv, currentdiv)
+
+}
+
+
+
 
 // function testing() {
 //     ctitle = 'eeee';
