@@ -16,10 +16,7 @@
 
     </div>
 
-    <div>
-        <button id="newbookbtn">New Book</button>
-    </div>
-    
+   
     <!-- Modal button -->
     <button id="myBtn">New Book button</button>
 
@@ -29,7 +26,7 @@
         <!-- Modal content on popup -->
         <div class="modal-content">
             <span class="close">&times;</span>
-            <form onsubmit="formSubmit()">
+            <form onsubmit="formSubmit();return false">
                 <label for="btitle">Book Title: </label><br>
                 <input type="text" name="btitle" id="btitle"><br>
                 
