@@ -59,11 +59,20 @@ function rendernewbook(book) {
     //creat div, add style
     console.log('render')
     let newdiv = document.createElement("div");
-    let newbook = document.createTextNode(book.info());
+    newdiv.classList.add("divcard")
+    let newbook = document.createTextNode(book.author);
     newdiv.appendChild(newbook)
 
     const currentdiv = document.getElementById("renderdiv")
     document.body.insertBefore(newdiv, currentdiv)
+
+
+    //loop through properties of book to show in card
+    // let title = myLibrary[0].title
+    // let newp = document.createElement("p");
+    // titlep.classList.add("booktitle");
+    // newdiv.innerText = book.author;
+
 
 }
 

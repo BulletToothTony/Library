@@ -52,3 +52,13 @@ h1 {
     height: 100px;
     border: 1px solid black;
 }
+
+.divcard {
+    height: 200px;
+    text-align: center;
+    width: 125px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: burlywood;
+}
