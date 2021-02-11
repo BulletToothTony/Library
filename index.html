@@ -21,7 +21,7 @@
     </div>
     
     <!-- Modal button -->
-    <button id="myBtn">Open Modal</button>
+    <button id="myBtn">New Book button</button>
 
     <!-- Modal Popup -->
     <div id="myModal" class="modal">
@@ -29,7 +29,23 @@
         <!-- Modal content on popup -->
         <div class="modal-content">
             <span class="close">&times;</span>
-            <p>Book author</p>
+            <form onsubmit="formSubmit()">
+                <label for="btitle">Book Title: </label><br>
+                <input type="text" name="btitle" id="btitle"><br>
+                
+                <label for="bauthor">Book Author: </label><br>
+                <input type="text" name="bauthor" id="bauthor"><br>
+
+                <label for="bpages">Book Page Count: </label><br>
+                <input type="text" name="bpages" id="bpages"><br>
+
+                <label for="bread">Book Read?: </label><br>
+                <input type="text" name="bread" id="bread"><br>
+                <br>
+
+                <input type="submit" value="Submit">
+
+            </form>
         </div>
 
     </div>
