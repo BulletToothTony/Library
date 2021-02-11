@@ -45,6 +45,9 @@ function formSubmit() {
 
     console.log(ctitle + cauthor + cpages + cread)
 
+    modal.style.display = 'none';
+
+
     LibraryLoop()
 
 
@@ -113,7 +116,7 @@ function addBookToLibrary(book) {
 
 function LibraryLoop() {
     for (let i = 0; i < myLibrary.length; i++){
-        LibDivInner.innerHTML += myLibrary[i].info() + ' + '
+        LibDivInner.innerHTML += myLibrary[i].info() + '<br />'
     }
 }
 
