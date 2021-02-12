@@ -70,6 +70,13 @@ function rendernewbook(book) {
     // document.body.appendChild(newdiv, currentdiv)
     document.getElementById('renderdiv').appendChild(newdiv)
 
+    // create button to remove
+    let newbtn = document.createElement("button");
+    newbtn.classList.add("bookbtn");
+    newbtn.innerHTML = "Remove";
+    newdiv.append(newbtn);
+
+
     //loop through properties of book to show in card
     // let title = myLibrary[0].title
     // let newp = document.createElement("p");

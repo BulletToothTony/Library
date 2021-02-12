@@ -69,3 +69,11 @@ h1 {
     padding: 5px;
     background-color: burlywood;
 }
+
+.bookbtn {
+    background-color: coral;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+    border: 2px solid black;
+}
