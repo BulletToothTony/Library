@@ -70,6 +70,12 @@ function rendernewbook(book) {
     // document.body.appendChild(newdiv, currentdiv)
     document.getElementById('renderdiv').appendChild(newdiv)
 
+    //loop through properties of book to show in card
+    // let title = myLibrary[0].title
+    // let newp = document.createElement("p");
+    // titlep.classList.add("booktitle");
+    // newdiv.innerText = book.author;
+
     // create button to remove
     let newbtn = document.createElement("button");
     newbtn.classList.add("bookbtn");
@@ -77,12 +83,15 @@ function rendernewbook(book) {
     newbtn.addEventListener("click", removebook)
     newdiv.append(newbtn);
 
+    // Toggle read button
+    let readbtn = document.createElement("button");
+    readbtn.setAttribute("id", "readbtn");
+    readbtn.classList.add("readbtnclass")
+    readbtn.innerHTML = "Read : Yes"
+    readbtn.addEventListener("click", toggleread);
+    newdiv.append(readbtn)
 
-    //loop through properties of book to show in card
-    // let title = myLibrary[0].title
-    // let newp = document.createElement("p");
-    // titlep.classList.add("booktitle");
-    // newdiv.innerText = book.author;
+
 }
 
 function removebook(e) {
@@ -92,6 +101,17 @@ function removebook(e) {
     elements[0].parentNode.removeChild(elements[0]);
 }
 
+function toggleread(e) {
+    let readbtn = document.getElementById("readbtn")
+    if (readbtn.innerHTML == "Read : Yes") {
+        readbtn.innerHTML = "Read : No"
+        readbtn.classList.remove("readbtnyes")
+        readbtn.classList.add("readbtnno")
+    } else {
+        readbtn.innerHTML = "Read : Yes"
+        readbtn.classList.add("readbtnyes")
+    }
+}
 
 // function testing() {
 //     ctitle = 'eeee';
