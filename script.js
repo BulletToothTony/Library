@@ -74,6 +74,7 @@ function rendernewbook(book) {
     let newbtn = document.createElement("button");
     newbtn.classList.add("bookbtn");
     newbtn.innerHTML = "Remove";
+    newbtn.addEventListener("click", removebook)
     newdiv.append(newbtn);
 
 
@@ -82,11 +83,14 @@ function rendernewbook(book) {
     // let newp = document.createElement("p");
     // titlep.classList.add("booktitle");
     // newdiv.innerText = book.author;
-
-
 }
 
-
+function removebook(e) {
+    console.log(e)
+    // need to remove div card class is divcard
+    let elements = document.getElementsByClassName("divcard")
+    elements[0].parentNode.removeChild(elements[0]);
+}
 
 
 // function testing() {
