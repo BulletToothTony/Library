@@ -77,3 +77,18 @@ h1 {
     cursor: pointer;
     border: 2px solid black;
 }
+
+.readbtnclass {
+    background-color: greenyellow;
+    border-radius: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.readbtnno {
+    background-color: red;
+}
+
+.readbtnyes {
+    background-color: greenyellow;
+}
