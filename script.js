@@ -61,11 +61,11 @@ function rendernewbook(book) {
     console.log('render')
     let newdiv = document.createElement("div");
     newdiv.classList.add("divcard")
-    let newbook = document.createTextNode(book.title);
-    const lineBreak = document.createElement('br');
-    newdiv.appendChild(newbook)
-    newdiv.append(book.pages)
-    newdiv.append(book.read)
+    // let newbook = document.createTextNode(book.title);
+    // const lineBreak = document.createElement('br');
+    // newdiv.appendChild(newbook)
+    // newdiv.append(book.pages)
+    // newdiv.append(book.read)
 
     const currentdiv = document.getElementById("renderdiv")
     // document.body.appendChild(newdiv, currentdiv)
@@ -78,15 +78,38 @@ function rendernewbook(book) {
     // newdiv.innerText = book.author;
 
     //loop through keys
-    // for (let key in newbook) {
-    //     console.log('key ' + key)
-    //     if (key == title) {
-    //         // let newp = document.createElement("p");
-    //         // newp = newbook.title;
-    //         // newdiv.append = newp + 'newp';
-    //         console.log('keytitle ' + newbook.title)
-    //     }
-    // }
+    for (const [key, value] of Object.entries(book)) {
+        console.log('key ' + key)
+
+        let newp = document.createElement("p");
+
+        if (key == "title") {
+            newp.innerHTML = `<span class="pagenumStyle">` + value + `</span>`
+            newp.classList.add("numpagestext")
+            newdiv.append(newp)
+        } 
+
+        else if (key == "pages") {
+            newp.innerHTML = `Num of pages: ` + `<span class="pagenumStyle">` + value + `</span>`
+            // newp = newbook.title;
+            // newdiv.append = newp + 'newp';
+            console.log('keytitle ' + key)
+            console.log('val' + value)
+            newp.classList.add("numpagestext")
+            newdiv.append(newp)
+        } else if (key == "author") {
+            newp.innerHTML = `Author: ` + `<span class="pagenumStyle">` + value + `</span>`
+            newp.classList.add("numpagestext")
+            newdiv.append(newp)
+        } else if (key == "read") {
+            newp.innerHTML = `Read:  ` + `<span class="pagenumStyle">` + value + `</span>`
+            // newp = newbook.title;
+            // newdiv.append = newp + 'newp';
+            newp.setAttribute("id", "readyesnoid")
+            newp.classList.add("numpagestext")
+            newdiv.append(newp)
+        } 
+    }
 
 
     // create button to remove
@@ -118,11 +141,18 @@ function toggleread(e) {
     let readbtn = document.getElementById("readbtn")
     if (readbtn.innerHTML == "Read : Yes") {
         readbtn.innerHTML = "Read : No"
+        let readindev = document.getElementById("readyesnoid");
         readbtn.classList.remove("readbtnyes")
         readbtn.classList.add("readbtnno")
+        readindev.innerHTML = "Read : No"
+        readindev.append(readindev);
     } else {
         readbtn.innerHTML = "Read : Yes"
         readbtn.classList.add("readbtnyes")
+        let readindev = document.getElementById("readyesnoid");
+        readindev.innerHTML = "Read : Yes"
+        readindev.append(readindev)
+        readbtn.classList.add("readbtnno")
     }
 }
 
