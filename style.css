@@ -63,7 +63,7 @@ h1 {
 }
 
 .divcard {
-    height: 200px;
+    height: auto;
     text-align: center;
     width: 125px;
     border: 1px solid black;
@@ -93,4 +93,8 @@ h1 {
 
 .readbtnyes {
     background-color: greenyellow;
+}
+
+.pagenumStyle {
+    font-weight: bold;
 }
