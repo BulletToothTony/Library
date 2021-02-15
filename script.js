@@ -2,6 +2,7 @@ const LibDivInner = document.getElementById('LibInner')
 const modal = document.getElementById('myModal');
 const modalbtn = document.getElementById('myBtn');
 const spanmodal = document.getElementsByClassName('close')[0];
+const modalForm = document.getElementById('modalForm')
 const btitle = document.getElementById('btitle')
 const bauthor = document.getElementById('bauthor')
 const bpages = document.getElementById('bpages')
@@ -47,7 +48,7 @@ function formSubmit() {
 
     modal.style.display = 'none';
 
-
+    resetform()
     LibraryLoop()
     rendernewbook(newbook)
 
@@ -75,6 +76,18 @@ function rendernewbook(book) {
     // let newp = document.createElement("p");
     // titlep.classList.add("booktitle");
     // newdiv.innerText = book.author;
+
+    //loop through keys
+    // for (let key in newbook) {
+    //     console.log('key ' + key)
+    //     if (key == title) {
+    //         // let newp = document.createElement("p");
+    //         // newp = newbook.title;
+    //         // newdiv.append = newp + 'newp';
+    //         console.log('keytitle ' + newbook.title)
+    //     }
+    // }
+
 
     // create button to remove
     let newbtn = document.createElement("button");
@@ -111,6 +124,10 @@ function toggleread(e) {
         readbtn.innerHTML = "Read : Yes"
         readbtn.classList.add("readbtnyes")
     }
+}
+
+function resetform() {
+    modalForm.reset()
 }
 
 // function testing() {
