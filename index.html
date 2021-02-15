@@ -9,6 +9,8 @@
 <body>
     <h1>Library</h1>
 
+    <h2>This is a project for <a href="https://www.theodinproject.com/courses/javascript/lessons/library">The Odin Project.</a> The library source code can be found at the <a href="https://github.com/BulletToothTony/Library">GitHub repo.</a></h2>
+
     <div class="LibDiv">
         <p id="LibInner">Books: <br> <br>
 
@@ -28,7 +30,7 @@
         <!-- Modal content on popup -->
         <div class="modal-content">
             <span class="close">&times;</span>
-            <form onsubmit="formSubmit();return false">
+            <form onsubmit="formSubmit();return false" id="modalForm">
                 <label for="btitle">Book Title: </label><br>
                 <input type="text" name="btitle" id="btitle"><br>
                 
@@ -54,5 +56,3 @@
 </body>
 
 <script src="script.js"></script>
-
-</html>
