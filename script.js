@@ -7,6 +7,7 @@ const btitle = document.getElementById('btitle')
 const bauthor = document.getElementById('bauthor')
 const bpages = document.getElementById('bpages')
 const bread = document.getElementById('bread')
+const DarkButton = document.getElementById('DarkModeTog')
 
 
 window.onload = LibraryLoop;
@@ -130,12 +131,37 @@ function rendernewbook(book) {
 
 }
 
+DarkButton.addEventListener("click", DarkModeFunc)
+
+function DarkModeFunc() {
+    let element = document.body;
+    let button = document.getElementById('DarkModeTog')
+    button.classList.toggle('dark-mode-button')
+    element.classList.toggle("dark-mode")
+}
+
 function removebook(e) {
     console.log(e)
     // need to remove div card class is divcard
     let elements = document.getElementsByClassName("divcard")
     elements[0].parentNode.removeChild(elements[0]);
+
+    //find book using function and remove
+    console.log(findbook(myLibrary, e.target.parentNode.childNodes[1].innerText));
 }
+
+function delbook(currentbook) {
+    myLibrary.splice(currentbook, currentbook + 1)
+}
+
+function findbook(libarr, bookname) {
+    for (bk of libarr) {
+        if(bk.title === bookname) {
+            return myLibrary.indexOf(bk);
+        }
+    }
+}
+
 
 function toggleread(e) {
     let readbtn = document.getElementById("readbtn")
@@ -227,6 +253,10 @@ function LibraryLoop() {
 }
 
 addBookToLibrary()
+
+console.log(myLibrary)
+x = findbook(myLibrary, "Lord of the rings")
+console.log('findbook!!!' + x)
 // LibraryLoop()
 
 // testing()
