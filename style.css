@@ -5,11 +5,21 @@ html {
     width: 100%;
 }
 
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
 header {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 7.5rem;
+}
+
+h2 {
+    text-align: center;
 }
 
 img {
@@ -24,8 +34,10 @@ h1 {
 
 .LibDiv {
     border: 1px solid rgb(0, 136, 160);
+    width: 95%;
     text-align: center;
     border-radius: 5px;
+    margin: 8px;
 }
 
 .modal {
@@ -67,9 +79,10 @@ h1 {
 .renderdiv {
     display: inline-flex;
     flex-wrap: wrap;
+    margin: 5px;
     padding: 10px;
     height: auto;
-    width: 95%;
+    width: auto;
     border: 1px solid black;
     border-radius: 5px;
 }
@@ -113,4 +126,13 @@ h1 {
 
 .pagenumStyle {
     font-weight: bold;
+}
+
+.dark-mode {
+    background-color: rgb(41, 41, 41);
+    color: ivory;
+}
+
+.dark-mode-button {
+    border: 3px solid black;
 }
