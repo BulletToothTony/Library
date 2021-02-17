@@ -135,9 +135,11 @@ DarkButton.addEventListener("click", DarkModeFunc)
 
 function DarkModeFunc() {
     let element = document.body;
+    let bookdiv = document.getElementById("renderdiv")
     let button = document.getElementById('DarkModeTog')
     button.classList.toggle('dark-mode-button')
     element.classList.toggle("dark-mode")
+    bookdiv.classList.toggle("div-dark")
 }
 
 function removebook(e) {
