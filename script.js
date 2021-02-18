@@ -12,7 +12,9 @@ const DarkButton = document.getElementById('DarkModeTog')
 
 window.onload = LibraryLoop;
 
+// allBooks = ''
 booksread = 0;
+booksnotread = 0;
 book = undefined;
 
 modalbtn.onclick = function() {
@@ -133,6 +135,20 @@ function rendernewbook(book) {
     readbtn.addEventListener("click", toggleread);
     newdiv.append(readbtn)
 
+    allBooks = document.querySelectorAll(".divcard")
+
+    for (let i = 0; i < allBooks.length; i++) {
+        allBooks[i].addEventListener("click", function(e) {
+        console.log(e)
+        if (e.target.classList.contains("bookbtn")) {
+            console.log("bookremoveee")
+            // e.target.firstChild.textContent = 'loooool';
+            e.target.parentNode.remove();
+            booksread -=1;
+            booksreadid.innerHTML = booksread
+        }
+        })
+    }   
     
 }
 
@@ -150,11 +166,13 @@ function DarkModeFunc() {
 function removebook(e) {
     console.log(e)
     // need to remove div card class is divcard
-    let elements = document.getElementsByClassName("divcard")
-    elements[0].parentNode.removeChild(elements[0]);
+    // let elements = document.getElementsByClassName("divcard")
+    // elements[0].parentNode.removeChild(elements[0]);
+    // booksread -=1;
+    // booksreadid.innerHTML = booksread
 
-    //find book using function and remove
-    console.log(findbook(myLibrary, e.target.parentNode.childNodes[1].innerText));
+    // //find book using function and remove
+    // console.log(findbook(myLibrary, e.target.parentNode.childNodes[1].innerText));
 }
 
 function delbook(currentbook) {
@@ -178,6 +196,10 @@ function toggleread(e) {
         readbtn.classList.remove("readbtnyes")
         readbtn.classList.add("readbtnno")
         readindev.innerHTML = "Read : No"
+        booksread -=1;
+        booksreadid.innerHTML = booksread
+        booksnotread +=1;
+        booksnotreadid.innerHTML = booksnotread
         // readindev.append(readindev);
     } else {
         readbtn.innerHTML = "Read : Yes"
@@ -186,16 +208,20 @@ function toggleread(e) {
         readindev.innerHTML = "Read : Yes"
         // readindev.append(readindev)
         readbtn.classList.add("readbtnno")
+        booksread +=1;
+        booksreadid.innerHTML = booksread
+        booksnotread -=1;
+        booksnotreadid.innerHTML = booksnotread
     }
 }
 
-const allBooks = document.querySelector(".divcard")
-if (allBooks) {
-allBooks.addEventListener("click", checkbooksinput)
-}
-function checkbooksinput(e) {
-    console.log(e + 'eeeeeeeeeeeee')
-}
+// allBooks = document.querySelectorAll(".divcard")
+
+// for (let i = 0; i < allBooks.length; i++) {
+//     allBooks[i].addEventListener("click", function(e) {
+//         console.log(e + 'bbbbbbbbbbbbb')
+//     })
+// }
 
 
 function resetform() {
