@@ -12,6 +12,7 @@ const DarkButton = document.getElementById('DarkModeTog')
 
 window.onload = LibraryLoop;
 
+booksread = 0;
 book = undefined;
 
 modalbtn.onclick = function() {
@@ -78,6 +79,10 @@ function rendernewbook(book) {
     // titlep.classList.add("booktitle");
     // newdiv.innerText = book.author;
 
+    const booksreadid = document.getElementById("booksreadid")
+    booksread +=1;
+    booksreadid.innerHTML = booksread
+
     //loop through keys
     for (const [key, value] of Object.entries(book)) {
         console.log('key ' + key)
@@ -128,7 +133,7 @@ function rendernewbook(book) {
     readbtn.addEventListener("click", toggleread);
     newdiv.append(readbtn)
 
-
+    
 }
 
 DarkButton.addEventListener("click", DarkModeFunc)
@@ -173,16 +178,25 @@ function toggleread(e) {
         readbtn.classList.remove("readbtnyes")
         readbtn.classList.add("readbtnno")
         readindev.innerHTML = "Read : No"
-        readindev.append(readindev);
+        // readindev.append(readindev);
     } else {
         readbtn.innerHTML = "Read : Yes"
         readbtn.classList.add("readbtnyes")
         let readindev = document.getElementById("readyesnoid");
         readindev.innerHTML = "Read : Yes"
-        readindev.append(readindev)
+        // readindev.append(readindev)
         readbtn.classList.add("readbtnno")
     }
 }
+
+const allBooks = document.querySelector(".divcard")
+if (allBooks) {
+allBooks.addEventListener("click", checkbooksinput)
+}
+function checkbooksinput(e) {
+    console.log(e + 'eeeeeeeeeeeee')
+}
+
 
 function resetform() {
     modalForm.reset()
@@ -224,6 +238,9 @@ console.log(EastofEden.info())
 
 const Lotr = new Book('Lord of the rings', 'Toklkien', 837, "no")
 console.log(Lotr.info())
+
+rendernewbook(EastofEden)
+rendernewbook(Lotr)
 
 function addBookToLibrary(book) {
     book11 = EastofEden
