@@ -36,7 +36,7 @@ h1 {
 }
 
 .LibDiv {
-    border: 1px solid rgb(0, 136, 160);
+    border: 1px solid rgb(218,86,82);
     width: 95%;
     text-align: center;
     border-radius: 5px;
@@ -141,7 +141,7 @@ h1 {
 }
 
 .div-dark {
-    background-color: teal;
+    background-color: rgb(218,86,82);
     color: rgb(109, 0, 103);
 }
 
@@ -163,4 +163,9 @@ h1 {
     color: white;
     transition: 0.3s;
     border: 1px solid black;
+}
+
+a {
+    text-decoration: underline;
+    color: inherit;
 }
