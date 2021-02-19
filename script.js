@@ -146,11 +146,23 @@ function rendernewbook(book) {
             e.target.parentNode.remove();
             booksread -=1;
             booksreadid.innerHTML = booksread
-        } else if (e.target.classList.contains("readbtnclass")) {
-            toggleread(e)
+        // } else if (e.target.classList.contains("readbtnclass")) {
+        //     // readbtns = document.qu
+        //     toggleread(e)
+
+        //     // for (let i = 0)
+        //     console.log('bookreadtest')
         }
         })
     }   
+
+    // new for loop test
+    newallbooks = document.querySelectorAll(".readbtnclass")
+    for (let i = 0; i < newallbooks.length; i++) {
+        newallbooks[i].addEventListener("click", function(e) {
+            console.log('jjjjjjjjjjjjjjjjjjj')
+        })
+    }
     
 }
 
@@ -191,7 +203,7 @@ function findbook(libarr, bookname) {
 
 
 function toggleread(e) {
-    // e.target.classList.add("testingclass")
+    // e.target.classList.toggle("testingclass")
 
     if (e.target.innerHTML === "Read : Yes" ) {
         e.target.innerHTML = "Read : No";

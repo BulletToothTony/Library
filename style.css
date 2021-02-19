@@ -120,7 +120,7 @@ h1 {
 }
 
 .readbtnno {
-    background-color: rgb(105, 0, 0);
+    background-color: rgb(255, 0, 0);
 }
 
 .readbtnyes {
@@ -168,8 +168,4 @@ h1 {
 a {
     text-decoration: underline;
     color: inherit;
-}
-
-.testingclass{
-    background-color: violet;
 }
