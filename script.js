@@ -53,7 +53,7 @@ function formSubmit() {
     modal.style.display = 'none';
 
     resetform()
-    LibraryLoop()
+    // LibraryLoop()
     rendernewbook(newbook)
 
     // addBookToLibrary(btitle, bauthor, bpages, bread)
@@ -209,6 +209,8 @@ function toggleread(e) {
         e.target.innerHTML = "Read : No";
         e.target.classList.remove("readbtnyes")
         e.target.classList.add("readbtnno")
+        e.target.parentNode.childNodes[3].innerHTML = 'Read : No'
+        // e.target.classList.remove("readbtnno")
         booksread -=1;
         booksreadid.innerHTML = booksread
         booksnotread +=1;
@@ -216,9 +218,10 @@ function toggleread(e) {
     } else if (e.target.innerHTML === "Read : No") {
         e.target.innerHTML = "Read : Yes";
         e.target.classList.add("readbtnyes");
+        e.target.classList.remove("readbtnno")
         // let readindev = document.getElementById("readyesnoid");
         // readindev.innerHTML = "Read : Yes"
-        e.target.classList.remove("readbtnno")
+        e.target.parentNode.childNodes[3].innerHTML = 'Read : Yes'
         booksread +=1;
         booksreadid.innerHTML = booksread
         booksnotread -=1;
