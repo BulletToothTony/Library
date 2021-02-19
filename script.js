@@ -146,6 +146,8 @@ function rendernewbook(book) {
             e.target.parentNode.remove();
             booksread -=1;
             booksreadid.innerHTML = booksread
+        } else if (e.target.classList.contains("readbtnclass")) {
+            toggleread(e)
         }
         })
     }   
@@ -189,30 +191,52 @@ function findbook(libarr, bookname) {
 
 
 function toggleread(e) {
-    let readbtn = document.getElementById("readbtn")
-    if (readbtn.innerHTML == "Read : Yes") {
-        readbtn.innerHTML = "Read : No"
-        let readindev = document.getElementById("readyesnoid");
-        readbtn.classList.remove("readbtnyes")
-        readbtn.classList.add("readbtnno")
-        readindev.innerHTML = "Read : No"
+    // e.target.classList.add("testingclass")
+
+    if (e.target.innerHTML === "Read : Yes" ) {
+        e.target.innerHTML = "Read : No";
+        e.target.classList.remove("readbtnyes")
+        e.target.classList.add("readbtnno")
         booksread -=1;
         booksreadid.innerHTML = booksread
         booksnotread +=1;
         booksnotreadid.innerHTML = booksnotread
-        // readindev.append(readindev);
-    } else {
-        readbtn.innerHTML = "Read : Yes"
-        readbtn.classList.add("readbtnyes")
-        let readindev = document.getElementById("readyesnoid");
-        readindev.innerHTML = "Read : Yes"
-        // readindev.append(readindev)
-        readbtn.classList.add("readbtnno")
+    } else if (e.target.innerHTML === "Read : No") {
+        e.target.innerHTML = "Read : Yes";
+        e.target.classList.add("readbtnyes");
+        // let readindev = document.getElementById("readyesnoid");
+        // readindev.innerHTML = "Read : Yes"
+        e.target.classList.remove("readbtnno")
         booksread +=1;
         booksreadid.innerHTML = booksread
         booksnotread -=1;
         booksnotreadid.innerHTML = booksnotread
+
     }
+    // let readbtn = document.getElementById("readbtn")
+    // if (readbtn.innerHTML == "Read : Yes") {
+    //     readbtn.innerHTML = "Read : No"
+    //     let readindev = document.getElementById("readyesnoid");
+    //     readbtn.classList.remove("readbtnyes")
+    //     readbtn.classList.add("readbtnno")
+    //     readindev.innerHTML = "Read : No"
+    //     booksread -=1;
+    //     booksreadid.innerHTML = booksread
+    //     booksnotread +=1;
+    //     booksnotreadid.innerHTML = booksnotread
+    //     // readindev.append(readindev);
+    //  else {
+    //     readbtn.innerHTML = "Read : Yes"
+    //     readbtn.classList.add("readbtnyes")
+    //     let readindev = document.getElementById("readyesnoid");
+    //     readindev.innerHTML = "Read : Yes"
+    //     // readindev.append(readindev)
+    //     readbtn.classList.add("readbtnno")
+    //     booksread +=1;
+    //     booksreadid.innerHTML = booksread
+    //     booksnotread -=1;
+    //     booksnotreadid.innerHTML = booksnotread
+    // }
 }
 
 // allBooks = document.querySelectorAll(".divcard")
