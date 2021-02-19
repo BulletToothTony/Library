@@ -211,6 +211,7 @@ function toggleread(e) {
         e.target.classList.add("readbtnno")
         e.target.parentNode.childNodes[3].innerHTML = 'Read : No'
         // e.target.classList.remove("readbtnno")
+        e.target.parentNode.classList.add("divcardnotread")
         booksread -=1;
         booksreadid.innerHTML = booksread
         booksnotread +=1;
@@ -219,8 +220,10 @@ function toggleread(e) {
         e.target.innerHTML = "Read : Yes";
         e.target.classList.add("readbtnyes");
         e.target.classList.remove("readbtnno")
+        e.target.parentNode.classList.remove("divcardnotread")
         // let readindev = document.getElementById("readyesnoid");
         // readindev.innerHTML = "Read : Yes"
+        
         e.target.parentNode.childNodes[3].innerHTML = 'Read : Yes'
         booksread +=1;
         booksreadid.innerHTML = booksread

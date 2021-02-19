@@ -104,6 +104,10 @@ h1 {
     background-color: burlywood;
 }
 
+.divcardnotread {
+    background-color: rgb(255, 0, 140);
+}
+
 .bookbtn {
     background-color: coral;
     border-radius: 5px;
