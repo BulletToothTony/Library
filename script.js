@@ -49,11 +49,10 @@ function formSubmit() {
     // addBookToLibrary(newbook)
 
     console.log(ctitle + cauthor + cpages + cread)
-
     modal.style.display = 'none';
 
     resetform()
-    // LibraryLoop()
+    LibraryLoop(newbook)
     rendernewbook(newbook)
 
     // addBookToLibrary(btitle, bauthor, bpages, bread)
@@ -301,10 +300,10 @@ function Book(title, author, pages, read) {
     }
 }
 
-const EastofEden = new Book('East of Eden', 'John Steinbeck', 732, "yes")
+const EastofEden = new Book('East of Eden', 'John Steinbeck', 732, "Yes")
 console.log(EastofEden.info())
 
-const Lotr = new Book('Lord of the rings', 'Toklkien', 837, "no")
+const Lotr = new Book('Lord of the rings', 'Tolkien', 837, "Yes")
 console.log(Lotr.info())
 
 rendernewbook(EastofEden)
@@ -333,11 +332,31 @@ function addBookToLibrary(book) {
 
 // addBookTest()
 
-function LibraryLoop() {
+
+function LibraryLoop(newbook) {
     for (let i = 0; i < myLibrary.length; i++){
-        LibDivInner.innerHTML += myLibrary[i].info() + '<br />'
+                if (myLibrary[i].title == newbook.title) {
+                    LibDivInner.innerHTML += myLibrary[i].info() + '<br />'
+                }
+        }
     }
-}
+
+
+//         match = false;
+//         for (let j = 0; j < myLibrary.length; j++) {
+//             if (myLibrary[i].title == myLibrary[j].title) {
+//                 match = true;
+//                 break;
+//             // LibDivInner.innerHTML += myLibrary[i].info() + '<br />'
+//             console.log(myLibrary[i])
+//         }
+//     }
+//     if (match) {
+//         console.log(myLibrary[i].title)
+//         LibDivInner.innerHTML += myLibrary[i].info() + '<br />'
+//     }
+// }
+// }
 
 addBookToLibrary()
 
