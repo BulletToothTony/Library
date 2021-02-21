@@ -341,7 +341,6 @@ function LibraryLoop(newbook) {
         }
     }
 
-
 //         match = false;
 //         for (let j = 0; j < myLibrary.length; j++) {
 //             if (myLibrary[i].title == myLibrary[j].title) {
