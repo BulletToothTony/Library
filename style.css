@@ -14,6 +14,10 @@ body {
     align-items: center;
 }
 
+html, body {
+    overflow: auto;
+}
+
 header {
     display: flex;
     align-items: center;
