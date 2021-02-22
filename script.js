@@ -123,7 +123,7 @@ function rendernewbook(book) {
     let newbtn = document.createElement("button");
     newbtn.classList.add("bookbtn");
     newbtn.innerHTML = "Remove";
-    newbtn.addEventListener("click", removebook)
+    // newbtn.addEventListener("click", removebook)
     newdiv.append(newbtn);
 
     // Toggle read button
@@ -142,9 +142,9 @@ function rendernewbook(book) {
         if (e.target.classList.contains("bookbtn")) {
             console.log("bookremoveee")
             // e.target.firstChild.textContent = 'loooool';
-            e.target.parentNode.remove();
             booksread -=1;
             booksreadid.innerHTML = booksread
+            e.target.parentNode.remove();
         // } else if (e.target.classList.contains("readbtnclass")) {
         //     // readbtns = document.qu
         //     toggleread(e)
