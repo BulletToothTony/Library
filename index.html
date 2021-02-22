@@ -52,16 +52,16 @@
             <span class="close">&times;</span>
             <form onsubmit="formSubmit();return false" id="modalForm">
                 <label for="btitle">Book Title: </label><br>
-                <input type="text" name="btitle" id="btitle"><br>
+                <input type="text" name="btitle" id="btitle" required><br>
                 
                 <label for="bauthor">Book Author: </label><br>
-                <input type="text" name="bauthor" id="bauthor"><br>
+                <input type="text" name="bauthor" id="bauthor" required><br>
 
                 <label for="bpages">Book Page Count: </label><br>
-                <input type="text" name="bpages" id="bpages"><br>
+                <input type="number" name="bpages" id="bpages" required><br>
 
                 <label for="bread">Book Read?: </label><br>
-                <input type="text" name="bread" id="bread"><br>
+                <input type="text" name="bread" id="bread" required><br>
                 <br>
 
                 <input type="submit" value="Submit">
