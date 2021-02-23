@@ -120,11 +120,11 @@ function rendernewbook(book) {
 
 
     // create button to remove
-    let newbtn = document.createElement("button");
-    newbtn.classList.add("bookbtn");
-    newbtn.innerHTML = "Remove";
-    // newbtn.addEventListener("click", removebook)
-    newdiv.append(newbtn);
+    let removeBtn = document.createElement("button");
+    removeBtn.classList.add("bookbtn");
+    removeBtn.innerHTML = "Remove";
+    // removebtn.addEventListener("click", removebook)
+    newdiv.append(removeBtn);
 
     // Toggle read button
     let readbtn = document.createElement("button");
@@ -136,14 +136,20 @@ function rendernewbook(book) {
 
     allBooks = document.querySelectorAll(".divcard")
 
+    removeBtn.addEventListener("click", function(e) {
+        console.log("bookremoveee")
+        booksread -=1;
+        booksreadid.innerHTML = booksread
+    })
+
     for (let i = 0; i < allBooks.length; i++) {
         allBooks[i].addEventListener("click", function(e) {
         console.log(e)
         if (e.target.classList.contains("bookbtn")) {
-            console.log("bookremoveee")
             // e.target.firstChild.textContent = 'loooool';
-            booksread -=1;
-            booksreadid.innerHTML = booksread
+            // booksread -=1;
+            // booksreadid.innerHTML = booksread
+            // bookremovetest();
             e.target.parentNode.remove();
         // } else if (e.target.classList.contains("readbtnclass")) {
         //     // readbtns = document.qu
@@ -164,6 +170,12 @@ function rendernewbook(book) {
     }
     
 }
+
+// function bookremovetest() {
+//     booksreadid = document.getElementById("booksreadid")
+//     booksread -=1;
+//     booksreadid.innerHTML = booksread
+// }
 
 DarkButton.addEventListener("click", DarkModeFunc)
 
@@ -296,7 +308,7 @@ function Book(title, author, pages, read) {
     this.pages = pages
     this.read = read
     this.info = function() {
-        return this.title + " by " + this.author + ", " + this.pages + " pages, " + this.read
+        return this.title + " by " + this.author + ", " + this.pages + " pages, " + "read: " + this.read;
     }
 }
 
