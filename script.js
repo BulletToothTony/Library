@@ -139,7 +139,9 @@ function rendernewbook(book) {
     removeBtn.addEventListener("click", function(e) {
         console.log("bookremoveee")
         booksread -=1;
+        console.log(e)
         booksreadid.innerHTML = booksread
+        e.target.parentNode.remove();
     })
 
     for (let i = 0; i < allBooks.length; i++) {
@@ -150,7 +152,8 @@ function rendernewbook(book) {
             // booksread -=1;
             // booksreadid.innerHTML = booksread
             // bookremovetest();
-            e.target.parentNode.remove();
+            console.log('test')
+            // e.target.parentNode.remove(); < # Old Method moved to remove button listener
         // } else if (e.target.classList.contains("readbtnclass")) {
         //     // readbtns = document.qu
         //     toggleread(e)
