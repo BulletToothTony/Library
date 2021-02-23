@@ -134,7 +134,7 @@ h1 {
 }
 
 .divcard {
-    height: 250px;
+    min-height: 265px;
     text-align: center;
     width: 125px;
     border: 1px solid black;
