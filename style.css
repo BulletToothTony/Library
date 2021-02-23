@@ -134,7 +134,7 @@ h1 {
 }
 
 .divcard {
-    height: auto;
+    height: 250px;
     text-align: center;
     width: 125px;
     border: 1px solid black;
@@ -185,7 +185,7 @@ h1 {
 }
 
 .div-dark {
-    background-color: rgb(218,86,82);
+    background-color: rgb(95, 95, 95);
     color: rgb(255, 255, 255);
 }
 
