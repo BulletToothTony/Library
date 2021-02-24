@@ -12,6 +12,24 @@ const DarkButton = document.getElementById('DarkModeTog')
 
 window.onload = LibraryLoop;
 
+if(!localStorage.getItem('myLibrary')) {
+    populateStorage();
+} else {
+    setStyles()
+}
+
+function populateStorage() {
+    localStorage.setItem('headerID', document.getElementById('headerID').innerHTML);
+    // setItem creates a new data item we are getting the value of the headerID
+
+    setStyles();
+}
+
+function setStyles() {
+    var headeridstyle  
+}
+
+
 // allBooks = ''
 booksread = 0;
 booksnotread = 0;
@@ -218,7 +236,6 @@ function findbook(libarr, bookname) {
 
 function toggleread(e) {
     // e.target.classList.toggle("testingclass")
-
     if (e.target.innerHTML === "Read : Yes" ) {
         e.target.innerHTML = "Read : No";
         e.target.classList.remove("readbtnyes")
@@ -230,6 +247,7 @@ function toggleread(e) {
         booksreadid.innerHTML = booksread
         booksnotread +=1;
         booksnotreadid.innerHTML = booksnotread
+        this.read = 'No'
     } else if (e.target.innerHTML === "Read : No") {
         e.target.innerHTML = "Read : Yes";
         e.target.classList.add("readbtnyes");
