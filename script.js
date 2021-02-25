@@ -14,22 +14,31 @@ console.log(bgcolorForm)
 
 window.onload = LibraryLoop;
 
-if(!localStorage.getItem('bgcolor')) {
-    populateStorage();
-} else {
-    setStyles()
+
+function changecolor() {
+    let color = document.getElementById('bgcolor').value;
+    headerID.style.backgroundColor = color
 }
 
-function populateStorage() {
-    localStorage.setItem('bgcolor', document.getElementById('bgcolor').value);
-    // setItem creates a new data item we are getting the value of the headerID
+// if(!localStorage.getItem('bgcolor')) {
+//     populateStorage();
+// } else {
+//     setStyles()
+// }
 
-    setStyles();
-}
+// function populateStorage() {
+//     localStorage.setItem('bgcolor', document.getElementById('bgcolor').value);
+//     // setItem creates a new data item we are getting the value of the headerID
 
-function setStyles() {
-    var headeridstyle  
-}
+//     setStyles();
+// }
+
+// function setStyles() {
+
+//     document.getElementById('bgcolor').value = currentColor;
+    
+//     headerID.style.backgroundColor = '#' + currentColor
+// }
 
 
 // allBooks = ''
