@@ -10,7 +10,7 @@ const bread = document.getElementById('bread')
 const DarkButton = document.getElementById('DarkModeTog')
 const bgcolorForm = document.getElementById('bgcolor')
 const headerID = document.getElementById('headerID')
-console.log(bgcolorForm)
+const htmlElem = document.querySelector('html')
 
 window.onload = LibraryLoop;
 
@@ -18,27 +18,33 @@ window.onload = LibraryLoop;
 function changecolor() {
     let color = document.getElementById('bgcolor').value;
     headerID.style.backgroundColor = color
+    
 }
 
-// if(!localStorage.getItem('bgcolor')) {
-//     populateStorage();
-// } else {
-//     setStyles()
-// }
+if(!localStorage.getItem('bgcolor')) {
+    populateStorage();
+} else {
+    setStyles()
+}
 
-// function populateStorage() {
-//     localStorage.setItem('bgcolor', document.getElementById('bgcolor').value);
-//     // setItem creates a new data item we are getting the value of the headerID
+function populateStorage() {
+    localStorage.setItem('bgcolor', document.getElementById('bgcolor').value);
+    x = document.getElementById('bgcolor').value
+    // setItem creates a new data item we are getting the value of the headerID
+    console.log(x)
+    setStyles();
+}
 
-//     setStyles();
-// }
+function setStyles() {
 
-// function setStyles() {
+    var currentColor = localStorage.getItem('bgcolor');
 
-//     document.getElementById('bgcolor').value = currentColor;
+    document.getElementById('bgcolor').value = currentColor;
     
-//     headerID.style.backgroundColor = '#' + currentColor
-// }
+    htmlElem.style.backgroundColor = '#' + currentColor;
+}
+
+bgcolorForm.onchange = populateStorage
 
 
 // allBooks = ''
