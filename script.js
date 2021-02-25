@@ -44,7 +44,7 @@ function setStyles() {
     htmlElem.style.backgroundColor = '#' + currentColor;
 }
 
-bgcolorForm.onchange = populateStorage
+bgcolorForm.onchange = populateStorage();
 
 
 // allBooks = ''
