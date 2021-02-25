@@ -8,18 +8,20 @@ const bauthor = document.getElementById('bauthor')
 const bpages = document.getElementById('bpages')
 const bread = document.getElementById('bread')
 const DarkButton = document.getElementById('DarkModeTog')
-
+const bgcolorForm = document.getElementById('bgcolor')
+const headerID = document.getElementById('headerID')
+console.log(bgcolorForm)
 
 window.onload = LibraryLoop;
 
-if(!localStorage.getItem('myLibrary')) {
+if(!localStorage.getItem('bgcolor')) {
     populateStorage();
 } else {
     setStyles()
 }
 
 function populateStorage() {
-    localStorage.setItem('headerID', document.getElementById('headerID').innerHTML);
+    localStorage.setItem('bgcolor', document.getElementById('bgcolor').value);
     // setItem creates a new data item we are getting the value of the headerID
 
     setStyles();
@@ -78,6 +80,7 @@ function formSubmit() {
 
 
 function rendernewbook(book) {
+    console.log('BOOOK READ ' + book.read)
     //creat div, add style
     console.log('render')
     let newdiv = document.createElement("div");
@@ -149,6 +152,19 @@ function rendernewbook(book) {
     readbtn.setAttribute("id", "readbtn");
     readbtn.classList.add("readbtnclass")
     readbtn.innerHTML = "Read : Yes"
+    // readbtn.innerHTML = 'Read : ' + book.read;
+    // x = readbtn.innerHTML
+    // if(x === "Read : No") {
+    //     readbtn.classList.remove("readbtnyes")
+    //     readbtn.classList.add("readbtnno")
+    //     readbtn.innerHTML == 'testtttno';
+    //     // let booksreadid = document.getElementById("booksreadid")
+    //     // booksread -=1;
+    //     // booksreadid.innerHTML = booksread
+
+    //     // classList.remove("readbtnyes")
+    //     // e.target.classList.add("readbtnno")
+    // }
     readbtn.addEventListener("click", toggleread);
     newdiv.append(readbtn)
 
@@ -247,7 +263,7 @@ function toggleread(e) {
         booksreadid.innerHTML = booksread
         booksnotread +=1;
         booksnotreadid.innerHTML = booksnotread
-        this.read = 'No'
+        // this.read = 'No'
     } else if (e.target.innerHTML === "Read : No") {
         e.target.innerHTML = "Read : Yes";
         e.target.classList.add("readbtnyes");
