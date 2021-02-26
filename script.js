@@ -42,10 +42,12 @@ function setStyles() {
     document.getElementById('bgcolor').value = currentColor;
     
     htmlElem.style.backgroundColor = '#' + currentColor;
+
+    changecolor();
 }
 
-bgcolorForm.onchange = populateStorage();
-
+// bgcolorForm.onchange = populateStorage();
+bgcolorForm.onchange = populateStorage;
 
 // allBooks = ''
 booksread = 0;
