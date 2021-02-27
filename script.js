@@ -12,8 +12,19 @@ const bgcolorForm = document.getElementById('bgcolor')
 const headerID = document.getElementById('headerID')
 const htmlElem = document.querySelector('html')
 
-window.onload = LibraryLoop;
+booksread = 0;
+booksnotread = 0;
+book = undefined;
 
+const EastofEden = new Book('East of Eden', 'John Steinbeck', 732, "Yes")
+console.log(EastofEden.info())
+
+const Lotr = new Book('Lord of the rings', 'Tolkien', 837, "Yes")
+console.log(Lotr.info())
+
+
+let myLibrary = [];
+window.onload = LibraryLoop;
 
 function changecolor() {
     let color = document.getElementById('bgcolor').value;
@@ -21,38 +32,69 @@ function changecolor() {
     
 }
 
-if(!localStorage.getItem('bgcolor')) {
-    populateStorage();
-} else {
-    setStyles()
+function setData() {
+    localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
 }
 
-function populateStorage() {
-    localStorage.setItem('bgcolor', document.getElementById('bgcolor').value);
-    x = document.getElementById('bgcolor').value
-    // setItem creates a new data item we are getting the value of the headerID
-    console.log(x)
-    setStyles();
+function storage() {
+    if(!localStorage.myLibrary) {
+        rendernewbook(EastofEden)
+        rendernewbook(Lotr)
+    } else {
+        let objects = localStorage.getItem('myLibrary') //gets info from locate store
+        xy = JSON.parse(objects);
+        console.log(objects + 'OBJECTS')
+
+        function xyparse() {
+            for (let i = 0; i<xy.length; i++) { //start from 2 to skip east of eden and lotr
+                titleee = xy[i].title;
+                authorrr = xy[i].author;
+                pagesss = xy[i].pages;
+                readdd = xy[i].read;
+                newbookk = new Book(titleee, authorrr, pagesss, readdd);
+                rendernewbook(newbookk);
+                 }
+        }
+        
+        xyparse();
+        
+    }
 }
 
-function setStyles() {
+storage();
 
-    var currentColor = localStorage.getItem('bgcolor');
+// if(!localStorage.getItem('bgcolor')) {
+//     populateStorage();
+// } else {
+//     setStyles()
+// }
 
-    document.getElementById('bgcolor').value = currentColor;
+// function populateStorage() {
+//     localStorage.setItem('bgcolor', document.getElementById('bgcolor').value);
+//     x = document.getElementById('bgcolor').value
+//     // setItem creates a new data item we are getting the value of the headerID
+//     console.log(x)
+//     setStyles();
+// }
+
+// function setStyles() {
+
+//     var currentColor = localStorage.getItem('bgcolor');
+
+//     document.getElementById('bgcolor').value = currentColor;
     
-    htmlElem.style.backgroundColor = '#' + currentColor;
+//     htmlElem.style.backgroundColor = '#' + currentColor;
 
-    changecolor();
-}
+//     changecolor();
+// }
 
-// bgcolorForm.onchange = populateStorage();
-bgcolorForm.onchange = populateStorage;
+// // bgcolorForm.onchange = populateStorage();
+// bgcolorForm.onchange = populateStorage;
 
 // allBooks = ''
-booksread = 0;
-booksnotread = 0;
-book = undefined;
+// booksread = 0;
+// booksnotread = 0;
+// book = undefined;
 
 modalbtn.onclick = function() {
     modal.style.display = 'block';
@@ -82,7 +124,6 @@ function formSubmit() {
     const newbook = new Book (ctitle, cauthor, cpages, cread)
 
     myLibrary.push(newbook)
-
     // addBookToLibrary(newbook)
 
     console.log(ctitle + cauthor + cpages + cread)
@@ -97,6 +138,7 @@ function formSubmit() {
 
 
 function rendernewbook(book) {
+    setData();
     console.log('BOOOK READ ' + book.read)
     //creat div, add style
     console.log('render')
@@ -111,7 +153,6 @@ function rendernewbook(book) {
     const currentdiv = document.getElementById("renderdiv")
     // document.body.appendChild(newdiv, currentdiv)
     document.getElementById('renderdiv').appendChild(newdiv)
-
     //loop through properties of book to show in card
     // let title = myLibrary[0].title
     // let newp = document.createElement("p");
@@ -121,7 +162,6 @@ function rendernewbook(book) {
     const booksreadid = document.getElementById("booksreadid")
     booksread +=1;
     booksreadid.innerHTML = booksread
-
     //loop through keys
     for (const [key, value] of Object.entries(book)) {
         console.log('key ' + key)
@@ -193,6 +233,8 @@ function rendernewbook(book) {
         console.log(e)
         booksreadid.innerHTML = booksread
         e.target.parentNode.remove();
+        myLibrary.pop();
+        setData();
     })
 
     for (let i = 0; i < allBooks.length; i++) {
@@ -354,7 +396,7 @@ function resetform() {
 //     console.log(btitle + bauthor + bpages + bread)
 //     LibraryLoop()
 // }
-let myLibrary = [];
+
 
 function Book(title, author, pages, read) {
     this.title = title
@@ -366,11 +408,6 @@ function Book(title, author, pages, read) {
     }
 }
 
-const EastofEden = new Book('East of Eden', 'John Steinbeck', 732, "Yes")
-console.log(EastofEden.info())
-
-const Lotr = new Book('Lord of the rings', 'Tolkien', 837, "Yes")
-console.log(Lotr.info())
 
 rendernewbook(EastofEden)
 rendernewbook(Lotr)
