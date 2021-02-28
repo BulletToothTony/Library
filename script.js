@@ -46,6 +46,11 @@ function storage() {
         console.log(objects + 'OBJECTS')
 
         function xyparse() {
+            const container = document.getElementById('renderdiv');
+            const books = document.querySelectorAll('.divcard');
+            books.forEach(book => container.removeChild(book));
+
+
             for (let i = 0; i<xy.length; i++) { //start from 2 to skip east of eden and lotr
                 titleee = xy[i].title;
                 authorrr = xy[i].author;
@@ -62,6 +67,8 @@ function storage() {
 }
 
 storage();
+// window.onload = storage;
+// myLibrary.onchange = storage;
 
 // if(!localStorage.getItem('bgcolor')) {
 //     populateStorage();
