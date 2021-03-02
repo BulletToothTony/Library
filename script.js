@@ -60,7 +60,8 @@ function storage() {
                 rendernewbook(newbookk);
                  }
         }
-        
+        // might need to remove above to stop double load on refresh
+
         xyparse();
         
     }
