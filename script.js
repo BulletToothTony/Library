@@ -16,11 +16,32 @@ booksread = 0;
 booksnotread = 0;
 book = undefined;
 
+class Book {
+
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages
+        this.read = read
+    }
+
+    info() {
+        return this.title + " by " + this.author + ", " + this.pages + " pages, " + "read: " + this.read;
+    }
+}
+
 const EastofEden = new Book('East of Eden', 'John Steinbeck', 732, "Yes")
 console.log(EastofEden.info())
 
 const Lotr = new Book('Lord of the rings', 'Tolkien', 837, "Yes")
 console.log(Lotr.info())
+
+
+// const EastofEden = new Book('East of Eden', 'John Steinbeck', 732, "Yes")
+// console.log(EastofEden.info())
+
+// const Lotr = new Book('Lord of the rings', 'Tolkien', 837, "Yes")
+// console.log(Lotr.info())
 
 
 let myLibrary = [];
@@ -406,15 +427,16 @@ function resetform() {
 // }
 
 
-function Book(title, author, pages, read) {
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
-    this.info = function() {
-        return this.title + " by " + this.author + ", " + this.pages + " pages, " + "read: " + this.read;
-    }
-}
+// function Book(title, author, pages, read) {
+//     this.title = title
+//     this.author = author
+//     this.pages = pages
+//     this.read = read
+//     this.info = function() {
+//         return this.title + " by " + this.author + ", " + this.pages + " pages, " + "read: " + this.read;
+//     }
+// }
+
 
 
 rendernewbook(EastofEden)
